@@ -1,32 +1,48 @@
 import React from "react";
-import Styled from "styled-components";
+import styled from "styled-components";
+import LogoIMG from "../assets/images/sRlogo.png";
 
 function NavBar() {
   return (
     <Nav>
-      <Logo>Sweet Rings</Logo>
+      <div className="links">
+        <Links>Our menu</Links>
+        <Links>Services</Links>
+        <Links>Contact us</Links>
+      </div>
+      <Logo src={LogoIMG} />
       <CTA>Make your Doughnut</CTA>
     </Nav>
   );
 }
-const Nav = Styled.div`
-    max-width: 100%;
-    height: 100px;
+const Nav = styled.div`
+  max-width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 80px;
+
+  .links {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 60px;
+    gap: 30px;
+  }
 `;
-const Logo = Styled.h1`
-    
+const Logo = styled.img`
+  width: 60px;
 `;
-const CTA = Styled.div`
-    background-color: brown;
-    width: 200px;
-    height: 40px;
-    display: grid;
-    place-items:center;
-    color: white;
-    cursor: pointer;
+const CTA = styled.div`
+  width: 200px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: #202020;
+  cursor: pointer;
+`;
+const Links = styled.p`
+  color: #202020;
 `;
 export default NavBar;
+// 5.3.8
