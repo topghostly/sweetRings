@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import LogoIMG from "../assets/images/sRlogo.png";
+import LogoIMG from "../assets/images/logoWhite-02.png";
 
 function NavBar() {
   return (
     <Nav>
       <div className="links">
-        <Links>Our menu</Links>
-        <Links>Services</Links>
-        <Links>Contact us</Links>
+        <p className="link">Our Menu</p>
+        <p className="link">Services</p>
+        <p className="link">Contact Us</p>
       </div>
       <Logo src={LogoIMG} />
       <CTA>Make your Doughnut</CTA>
@@ -28,21 +28,31 @@ const Nav = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 30px;
+    transition: all 0.3s ease-in-out;
+    :hover {
+      color: #392755;
+      transition: all 0.3s ease-in-out;
+    }
+    p {
+      color: white;
+      font-family: "Poppins-Regular";
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
   }
 `;
 const Logo = styled.img`
-  width: 60px;
+  width: 70px;
 `;
-const CTA = styled.div`
+const CTA = styled.div` 
   width: 200px;
   height: 40px;
   display: grid;
   place-items: center;
-  color: #202020;
+  font-family: "Poppins-Regular";
+  color: white;
+  font-size: 15px;
   cursor: pointer;
 `;
-const Links = styled.p`
-  color: #202020;
-`;
 export default NavBar;
-// 5.3.8
