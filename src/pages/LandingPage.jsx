@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 // import background from "../assets/images/background.png";
 import NavBar from "../components/NavBar";
+import gsap from "gsap";
 
 function LandingPage() {
+  useEffect(() => {
+    gsap.set(".text-l", {
+      scale: 0,
+    });
+    gsap.to(".text-l", {
+      scale: 1,
+      stagger: 0.3,
+    });
+  });
   return (
     <Landing>
       <NavBar />
