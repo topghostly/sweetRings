@@ -12,3 +12,7 @@ body {
   font-family: "Poppins-Medium";
   src: url(./assets/fonts/Poppins-Medium.ttf);
 }
+@font-face {
+  font-family: "GreatVibes-Regular";
+  src: url(./assets/fonts/GreatVibes-Regular.ttf);
+}

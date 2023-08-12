@@ -35,8 +35,8 @@ const Nav = styled.div`
     }
     p {
       color: white;
-      font-family: "Poppins-Regular";
-      font-size: 15px;
+      font-family: "GreatVibes-Regular";
+      font-size: 25px;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
     }
@@ -45,14 +45,14 @@ const Nav = styled.div`
 const Logo = styled.img`
   width: 70px;
 `;
-const CTA = styled.div` 
+const CTA = styled.div`
   width: 200px;
   height: 40px;
   display: grid;
   place-items: center;
-  font-family: "Poppins-Regular";
+  font-family: "GreatVibes-Regular";
   color: white;
-  font-size: 15px;
+  font-size: 25px;
   cursor: pointer;
 `;
 export default NavBar;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 // import background from "../assets/images/background.png";
 import NavBar from "../components/NavBar";
 import gsap from "gsap";
+import Drag from "../components/util/Drag";
 
 function LandingPage() {
   useEffect(() => {
@@ -37,15 +38,31 @@ function LandingPage() {
           <h1>N</h1>
         </div>
         <div className="text-l">
-          <h1>U</h1>
+          <Drag
+            theStyle={{
+              padding: "10px",
+              position: "relative",
+            }}
+          >
+            <h1>U</h1>
+          </Drag>
         </div>
         <div className="text-l">
           <h1>T</h1>
         </div>
       </div>
-      <CircleLink>
-        <p>Virtual Doughnut</p>
-      </CircleLink>
+      <Drag
+        theStyle={{
+          padding: "25px",
+          position: "absolute",
+          bottom: "30px",
+          right: "30px",
+        }}
+      >
+        <CircleLink>
+          <p>Virtual Doughnut 🍩</p>
+        </CircleLink>
+      </Drag>
     </Landing>
   );
 }
@@ -63,14 +80,20 @@ const Landing = styled.div`
   }
 `;
 const CircleLink = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 170px;
   display: flex;
+  border-radius: 50%;
   justify-content: center;
   align-items: center;
   background-color: #392755;
+  cursor: pointer;
   p {
     margin: 0px;
+    font-family: "GreatVibes-Regular";
+    font-size: 20px;
+    width: 100px;
+    color: white;
   }
 `;
 export default LandingPage;
