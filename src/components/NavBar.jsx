@@ -16,12 +16,14 @@ function NavBar() {
   );
 }
 const Nav = styled.div`
-  max-width: 100%;
+  width: 100vw;
   height: 100px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 0px 80px;
+  /* padding: 0px 20px; */
+  z-index: 100;
+  position: fixed;
 
   .links {
     display: flex;
@@ -30,7 +32,7 @@ const Nav = styled.div`
     gap: 30px;
     transition: all 0.3s ease-in-out;
     :hover {
-      color: #392755;
+      color: #b4870d;
       transition: all 0.3s ease-in-out;
     }
     p {

@@ -16,3 +16,7 @@ body {
   font-family: "GreatVibes-Regular";
   src: url(./assets/fonts/GreatVibes-Regular.ttf);
 }
+@font-face {
+  font-family: "Themadi";
+  src: url(./assets/fonts/Themadi.ttf);
+}
