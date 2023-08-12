@@ -38,14 +38,7 @@ function LandingPage() {
           <h1>N</h1>
         </div>
         <div className="text-l">
-          <Drag
-            theStyle={{
-              padding: "10px",
-              position: "relative",
-            }}
-          >
-            <h1>U</h1>
-          </Drag>
+          <h1>U</h1>
         </div>
         <div className="text-l">
           <h1>T</h1>
@@ -53,10 +46,11 @@ function LandingPage() {
       </div>
       <Drag
         theStyle={{
-          padding: "25px",
+          padding: "10px",
           position: "absolute",
-          bottom: "30px",
-          right: "30px",
+          bottom: "60px",
+          right: "60px",
+          borderRadius: "50%",
         }}
       >
         <CircleLink>

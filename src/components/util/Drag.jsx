@@ -1,47 +1,68 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 
 function Drag({ children, theStyle }) {
-  const mouselocation = () => {
-    console.log("Mouse is moving");
+  const ref = useRef(null);
+  const childrenRef = useRef(null);
+  const mouseLocation = (event) => {
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+    const { top, left, bottom, right } = ref.current.getBoundingClientRect();
+    let targetHeight = bottom - top;
+    let targetWidth = right - left;
+
+    targetHeight = targetHeight / 2;
+    targetWidth = targetWidth / 2;
+
+    let x = left - mouseX;
+    let y = top - mouseY;
+
+    x = -x - targetWidth;
+    y = -y - targetHeight;
+
+    console.log(x, y);
+    return { x, y };
+  };
+
+  const handleAnimation = (event) => {
+    let { x, y } = mouseLocation(event);
     gsap.to(".children-div", {
-      y: 25,
-      transition: 0.06,
+      y: y,
+      x: x,
+      transition: 0.09,
     });
   };
-  const getMouseLocation = () => {
-    console.log("The Mouse is inside");
-    addEventListener("mousemove", mouselocation);
+  const mouseEnter = () => {
+    addEventListener("mousemove", handleAnimation);
   };
-  const backToCenter = () => {
-    console.log("Back to center");
-    removeEventListener("mousemove", mouselocation);
+  const mouseLeave = () => {
+    removeEventListener("mousemove", handleAnimation);
     gsap.to(".children-div", {
       y: 0,
-      transition: 0.06,
+      x: 0,
+      transition: 0.09,
     });
   };
 
-  addEventListener("mousemove", () => {
-    console.log(pageXOffset);
+  useEffect(() => {
+    removeEventListener("mousemove", handleAnimation);
   });
-
-  useEffect(() => {});
   return (
     <Body
-      onMouseEnter={getMouseLocation}
-      onMouseLeave={backToCenter}
+      onMouseEnter={mouseEnter}
+      onMouseLeave={mouseLeave}
+      ref={ref}
       theStyle={theStyle}
     >
-      <div className="children-div">{children}</div>
+      <div className="children-div" ref={childrenRef}>
+        {children}
+      </div>
     </Body>
   );
 }
 
 const Body = styled.div`
-  background-color: red;
-  padding: ${(props) => props.theStyle.padding};
   width: fit-content;
   height: fit-content;
   position: ${(props) => props.theStyle.position};
@@ -49,10 +70,13 @@ const Body = styled.div`
   right: ${(props) => props.theStyle.right};
   top: ${(props) => props.theStyle.top};
   left: ${(props) => props.theStyle.left};
+  border-radius: ${(props) => props.theStyle.borderRadius};
+  cursor: pointer;
 
   .children-div {
     width: fit-content;
     height: fit-content;
+    pointer-events: none;
   }
 `;
 export default Drag;
