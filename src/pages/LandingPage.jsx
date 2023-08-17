@@ -56,7 +56,7 @@ function LandingPage() {
         }}
       >
         <CircleLink>
-          <p>Virtual Doughnut 🍩</p>
+          <p>🍩</p>
         </CircleLink>
       </Drag>
     </Landing>
@@ -65,7 +65,6 @@ function LandingPage() {
 const Landing = styled.div`
   max-width: 100%;
   height: 100vh;
-  /* background-color: #f09f9f; */
   background-image: url(${(props) => props.background});
   background-size: cover;
   background-position: center;
@@ -75,7 +74,7 @@ const Landing = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #2322223a;
+    background-color: #2322226d;
     top: 0;
     left: 0;
   }
@@ -105,13 +104,13 @@ const CircleLink = styled.div`
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  background-color: #b4870d;
+  background-color: #d6b55c;
   cursor: pointer;
   p {
     margin: 0px;
     font-family: "GreatVibes-Regular";
     text-align: center;
-    font-size: 17px;
+    font-size: 47px;
     width: 100px;
     color: white;
   }

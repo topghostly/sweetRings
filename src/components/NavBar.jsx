@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import LogoIMG from "../assets/images/logoWhite-02.png";
 
@@ -29,31 +28,42 @@ const Nav = styled.div`
     justify-content: space-between;
     align-items: center;
     gap: 30px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.1s ease-in-out;
     :hover {
-      color: #b4870d;
-      transition: all 0.3s ease-in-out;
+      color: #f8d983;
+      transition: all 0.1s ease-in-out;
     }
     p {
       color: white;
-      font-family: "GreatVibes-Regular";
-      font-size: 25px;
+      font-family: "Poppins-Regular";
+      font-size: 13px;
       cursor: pointer;
       transition: all 0.3s ease-in-out;
     }
   }
 `;
 const Logo = styled.img`
-  width: 70px;
+  width: 60px;
 `;
 const CTA = styled.div`
-  width: 200px;
-  height: 40px;
-  display: grid;
-  place-items: center;
-  font-family: "GreatVibes-Regular";
+  padding: 10px 20px;
+  font-family: "Poppins-Regular";
   color: white;
-  font-size: 25px;
+  font-size: 13px;
+  border-radius: 7px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-color: transparent;
+  position: relative;
+
+  ::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: pink;
+    width: 100%;
+    height: 100%;
+  }
 `;
 export default NavBar;

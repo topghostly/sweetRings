@@ -1,53 +1,60 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 
 function Drag({ children, theStyle }) {
   const ref = useRef(null);
-  const childrenRef = useRef(null);
-  const mouseLocation = (event) => {
+
+  // const mouseLocation = (event) => {
+  //   const mouseX = event.clientX;
+  //   const mouseY = event.clientY;
+  //   const { top, left, bottom, right } = ref.current.getBoundingClientRect();
+
+  //   const targetHeight = (bottom - top) / 2;
+  //   const targetWidth = (right - left) / 2;
+
+  //   const x = -left + mouseX - targetWidth;
+  //   const y = -top + mouseY - targetHeight;
+
+  //   return { x, y };
+  // };
+
+  const handleAnimation = (event) => {
+    // let { x, y } = mouseLocation(event);
     const mouseX = event.clientX;
     const mouseY = event.clientY;
     const { top, left, bottom, right } = ref.current.getBoundingClientRect();
-    let targetHeight = bottom - top;
-    let targetWidth = right - left;
 
-    targetHeight = targetHeight / 2;
-    targetWidth = targetWidth / 2;
+    const targetHeight = (bottom - top) / 2;
+    const targetWidth = (right - left) / 2;
 
-    let x = left - mouseX;
-    let y = top - mouseY;
+    const x = -left + mouseX - targetWidth;
+    const y = -top + mouseY - targetHeight;
 
-    x = -x - targetWidth;
-    y = -y - targetHeight;
-
-    console.log(x, y);
-    return { x, y };
-  };
-
-  const handleAnimation = (event) => {
-    let { x, y } = mouseLocation(event);
     gsap.to(".children-div", {
       y: y,
       x: x,
-      transition: 0.09,
+      transition: 0.08,
     });
   };
+
   const mouseEnter = () => {
     addEventListener("mousemove", handleAnimation);
   };
+
   const mouseLeave = () => {
     removeEventListener("mousemove", handleAnimation);
     gsap.to(".children-div", {
       y: 0,
       x: 0,
-      transition: 0.09,
+      transition: 0.08,
     });
   };
 
   useEffect(() => {
     removeEventListener("mousemove", handleAnimation);
   });
+
   return (
     <Body
       onMouseEnter={mouseEnter}
@@ -55,9 +62,7 @@ function Drag({ children, theStyle }) {
       ref={ref}
       theStyle={theStyle}
     >
-      <div className="children-div" ref={childrenRef}>
-        {children}
-      </div>
+      <div className="children-div">{children}</div>
     </Body>
   );
 }
@@ -79,4 +84,5 @@ const Body = styled.div`
     pointer-events: none;
   }
 `;
+
 export default Drag;
