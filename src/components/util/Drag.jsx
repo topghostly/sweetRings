@@ -5,19 +5,6 @@ import gsap from "gsap";
 function Drag({ children, theStyle }) {
   const ref = useRef(null);
 
-  // const mouseLocation = (event) => {
-  //   const mouseX = event.clientX;
-  //   const mouseY = event.clientY;
-  //   const { top, left, bottom, right } = ref.current.getBoundingClientRect();
-
-  //   const targetHeight = (bottom - top) / 2;
-  //   const targetWidth = (right - left) / 2;
-
-  //   const x = -left + mouseX - targetWidth;
-  //   const y = -top + mouseY - targetHeight;
-
-  //   return { x, y };
-  // };
 
   const handleAnimation = (event) => {
     // let { x, y } = mouseLocation(event);
