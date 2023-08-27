@@ -45,7 +45,17 @@ function LandingPage() {
           <h1>T</h1>
         </div>
       </div>
-
+      <Drag
+        theStyle={{
+          padding: "10px",
+          position: "absolute",
+          top: "60px",
+          right: "60px",
+          borderRadius: "50%",
+        }}
+      >
+        <p>My name is Tope</p>
+      </Drag>
       <Drag
         theStyle={{
           padding: "10px",
@@ -69,6 +79,7 @@ const Landing = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
 
   .backdrop {
     position: absolute;

@@ -1,13 +1,12 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
+import PropTypes from "prop-types";
 
 function Drag({ children, theStyle }) {
   const ref = useRef(null);
 
-
   const handleAnimation = (event) => {
-    // let { x, y } = mouseLocation(event);
     const mouseX = event.clientX;
     const mouseY = event.clientY;
     const { top, left, bottom, right } = ref.current.getBoundingClientRect();
@@ -18,7 +17,7 @@ function Drag({ children, theStyle }) {
     const x = -left + mouseX - targetWidth;
     const y = -top + mouseY - targetHeight;
 
-    gsap.to(".children-div", {
+    gsap.to(".bodyY", {
       y: y,
       x: x,
       transition: 0.08,
@@ -31,7 +30,7 @@ function Drag({ children, theStyle }) {
 
   const mouseLeave = () => {
     removeEventListener("mousemove", handleAnimation);
-    gsap.to(".children-div", {
+    gsap.to(".bodyY", {
       y: 0,
       x: 0,
       transition: 0.08,
@@ -48,11 +47,18 @@ function Drag({ children, theStyle }) {
       onMouseLeave={mouseLeave}
       ref={ref}
       theStyle={theStyle}
+      className="bodyY"
     >
       <div className="children-div">{children}</div>
     </Body>
   );
 }
+
+Drag.propTypes = {
+  children: PropTypes.node.isRequired,
+  theStyle: PropTypes.object,
+};
+export default Drag;
 
 const Body = styled.div`
   width: fit-content;
@@ -63,6 +69,7 @@ const Body = styled.div`
   top: ${(props) => props.theStyle.top};
   left: ${(props) => props.theStyle.left};
   border-radius: ${(props) => props.theStyle.borderRadius};
+  background-color: red;
   cursor: pointer;
 
   .children-div {
@@ -71,5 +78,3 @@ const Body = styled.div`
     pointer-events: none;
   }
 `;
-
-export default Drag;
