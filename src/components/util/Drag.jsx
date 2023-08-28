@@ -17,10 +17,10 @@ function Drag({ children, theStyle }) {
     const x = -left + mouseX - targetWidth;
     const y = -top + mouseY - targetHeight;
 
-    gsap.to(".bodyY", {
+    gsap.to(ref.current, {
       y: y,
       x: x,
-      transition: 0.08,
+      transition: 0.1,
     });
   };
 
@@ -30,10 +30,10 @@ function Drag({ children, theStyle }) {
 
   const mouseLeave = () => {
     removeEventListener("mousemove", handleAnimation);
-    gsap.to(".bodyY", {
+    gsap.to(ref.current, {
       y: 0,
       x: 0,
-      transition: 0.08,
+      transition: 0.1,
     });
   };
 
@@ -58,6 +58,7 @@ Drag.propTypes = {
   children: PropTypes.node.isRequired,
   theStyle: PropTypes.object,
 };
+
 export default Drag;
 
 const Body = styled.div`
