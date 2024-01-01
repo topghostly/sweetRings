@@ -47,7 +47,8 @@ function LandingPage() {
       </div>
       <Drag
         theStyle={{
-          padding: "10px",
+          width: "100px",
+          height: "100px",
           position: "absolute",
           top: "60px",
           right: "60px",
@@ -58,7 +59,8 @@ function LandingPage() {
       </Drag>
       <Drag
         theStyle={{
-          padding: "10px",
+          width: "140px",
+          height: "140px",
           position: "absolute",
           bottom: "60px",
           right: "60px",
