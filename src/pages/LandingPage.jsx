@@ -117,7 +117,7 @@ const CircleLink = styled.div`
   border-radius: 50%;
   justify-content: center;
   align-items: center;
-  background-color: #d6b55c;
+  // background-color: #d6b55c;
   cursor: pointer;
   p {
     margin: 0px;

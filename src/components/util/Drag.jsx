@@ -39,12 +39,14 @@ function Drag({ children, theStyle }) {
     gsap.to(ref.current, {
       y: 0,
       x: 0,
-      transition: 0.1,
+      duration: 0.9,
+      ease: "bounce.out",
     });
     gsap.to(objectRef.current, {
       y: 0,
       x: 0,
-      transition: 0.1,
+      duration: 0.9,
+      ease: "bounce.out",
     });
   };
 
