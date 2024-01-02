@@ -4,6 +4,7 @@ import background from "../assets/images/background.jpg";
 import NavBar from "../components/NavBar";
 import gsap from "gsap";
 import Drag from "../components/util/Drag";
+import NewAnim from "../components/NewAnim";
 
 function LandingPage() {
   useEffect(() => {
@@ -17,6 +18,7 @@ function LandingPage() {
   });
   return (
     <Landing background={background}>
+      <NewAnim />
       <div className="backdrop"></div>
       <NavBar />
       <div className="large--text">

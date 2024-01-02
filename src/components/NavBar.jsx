@@ -20,7 +20,7 @@ const Nav = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  z-index: 999;
+  z-index: 19;
   position: fixed;
 
   .links {
