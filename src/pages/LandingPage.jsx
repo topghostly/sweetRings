@@ -84,6 +84,7 @@ const Landing = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  overflow: hidden;
 
   .backdrop {
     position: absolute;
